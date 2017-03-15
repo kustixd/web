@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="94479c1a-c8ce-4a70-946e-57a0eb05bada" name="Veebiprogrammeerimine" url="http://138.68.68.130/~karl-gustav.kraak">
+        <fileTransfer host="138.68.68.130" port="22" rootFolder="/home/karl-gustav.kraak/public" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
