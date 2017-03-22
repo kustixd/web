@@ -14,6 +14,12 @@ class template
     var $vars = array(); // html vaade sisu - reaalsed väärtused
     // klassi tegevused - meetodid - funktsioonid
 
+    // klassi konstruktor
+    function __construct($f){
+        $this->file = $f; // määrame html malli faili nime
+        $this->loadFile(); // loeme määratud failist sisu
+    }//konstrktor
+
     // html faili lugemine
     function loadFile(){
         $f = $this->file; //lokaalne asendus
