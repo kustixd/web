@@ -20,4 +20,5 @@ $main_tmpl->set('content', 'Lehe sisu');
 $main_tmpl->set('site_title', 'Veebiprogrammeerimise kursus');
 // kontrollin antud objekti sisu
 echo $main_tmpl->parse();
+require_once 'menu.php';
 ?>

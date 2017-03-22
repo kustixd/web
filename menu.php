@@ -8,9 +8,14 @@
 // loome menüü template objektid
 $menu = new template('menu.menu');
 $item = new template('menu.item');
+//lisame  sisu
+$item->set('name','esimene');
+$menu->set('name', $item->parse());
+$item->set('name', 'teine');
+$menu->set('name', $item->parse());
 // kontrollime objekti olemasolu ja sisu
 echo '<pre>';
 print_r($menu);
 print_r($item);
-echo '</pre>';
+echo '<pre>';
 ?>
