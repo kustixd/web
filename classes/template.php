@@ -69,8 +69,9 @@ class template
         // vaatame malli elemendi massiivi
         foreach ($this->vars as $name=>$val){
             $str = str_replace('{'.$name.'}', $val, $str);
-            echo $str;
+            //echo $str;
         }
+        return $str;
     }//parse
 
 }//klassi lõpp
