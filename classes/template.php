@@ -68,17 +68,17 @@ class template
 
     // koostame paarid malli elemendi nimi => reaalne_väärtus
     function set($name, $val){
+        $this->vars[$name] = $val;
+    }// set
+
+    // lisame lisaväärtused olemasolevatele elementidele
+    function add($name, $val){
         // kui antud nimega elementi ei eksisteeri
         if(!isset($this->vars[$name])){
             $this->set($name, $val);
         } else {
             $this->vars[$name] = $this->vars[$name].$val;
         }
-    }// set
-
-    // lisame lisaväärtused olemasolevatele elementidele
-    function add($name, $val){
-        $this->vars[$name] = $val;
     }// add
 
     //htmli täitmine reaalse sisuga

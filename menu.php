@@ -12,7 +12,7 @@ $item = new template('menu.item');
 $item->set('name','esimene');
 $menu->set('name', $item->parse());
 $item->set('name', 'teine');
-$menu->set('name', $item->parse());
+$menu->add('name', $item->parse());
 // kontrollime objekti olemasolu ja sisu
 echo '<pre>';
 print_r($menu);
