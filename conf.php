@@ -11,4 +11,5 @@ define('TMPL_DIR', 'tmpl/'); //tmpl kataloogi nime konstant
 
 //võtame kasutusele vajalikud failid
 require_once CLASSES_DIR.'template.php';
+require_once CLASSES_DIR.'http.php';
 ?>
