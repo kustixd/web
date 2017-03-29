@@ -13,6 +13,12 @@ class http
     var $server = []; // serveri masina andmed
     // klassi meetodid
 
+    // klassi konstruktor
+    function __construct(){
+        $this->init();
+        $this->initCont();
+    }
+
     // paneme algandmed paika - initsialiseerime neid
     function init(){
         $this->vars = array_merge($_GET, $_POST, $_FILES);
