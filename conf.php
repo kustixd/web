@@ -8,6 +8,7 @@
 //degineerime vajalikud konstandid
 define('CLASSES_DIR', 'classes/'); //classes kataloogi nime konstant
 define('TMPL_DIR', 'tmpl/'); //tmpl kataloogi nime konstant
+define('LIB_DIR', 'lib/'); //lib kataloogi nime konstant
 
 // võtame kasutusele vajalikud abifailid
 require_once LIB_DIR.'utils.php';
