@@ -64,16 +64,26 @@ class template
     // loeme sisu html failist
     function readFile($f){
         $this->content = file_get_contents($f);
-    }//readFile
+    }// readFile
 
-    //koostame paarid malli elemendi nimi => reaalne_väärtus
+    // koostame paarid malli elemendi nimi => reaalne_väärtus
     function set($name, $val){
+        // kui antud nimega elementi ei eksisteeri
+        if(!isset($this->vars[$name])){
+            $this->set($name, $val);
+        } else {
+            $this->vars[$name] = $this->vars[$name].$val;
+        }
+    }// set
+
+    // lisame lisaväärtused olemasolevatele elementidele
+    function add($name, $val){
         $this->vars[$name] = $val;
-    }//set
+    }// add
 
     //htmli täitmine reaalse sisuga
     function parse(){
-        $str = $this->content; //lokaalne asendus
+        $str = $this->content; // lokaalne asendus
         // vaatame malli elemendi massiivi
         foreach ($this->vars as $name=>$val){
             $str = str_replace('{'.$name.'}', $val, $str);
