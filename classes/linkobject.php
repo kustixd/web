@@ -29,6 +29,19 @@ class linkobject extends http
             $link = $link.$this->delim;
         }
         $link = $link.fixUrl($name).$this->eq.fixUrl($val);
-        echo $link;
     }// addToLink
+
+    // saame täislingi valmis
+    function getLink($add = array()){
+        $link = '';
+        foreach ($add as $name=>$val) {
+            $this->addToLink($link, $name, $val);
+        }
+        if ($link != ''){
+            $link = $this->baseUrl.'?'.$link;
+        }else{
+            $link = $this->baseUrl;
+        }
+        return $link;
+    }// get link
 } //klassi lõpp

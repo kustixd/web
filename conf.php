@@ -22,7 +22,8 @@ require_once CLASSES_DIR.'linkobject.php';
 // loome vajalikud objektid projekti tööks
 $http = new linkobject();
 // Testime linkobjekti tööd
-echo $http->baseUrl;
+echo $http->baseUrl.'<br>';
+echo $http->getLink(array('kasutaja'=>'admin', 'pass'=>'qwerty'));
 //echo '<pre>';
 //print_r($http);
 //echo '</pre>';
