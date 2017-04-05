@@ -26,7 +26,8 @@ require_once CLASSES_DIR.'mysql.php';
 // loome vajalikud objektid projekti tööks
 $http = new linkobject();
 $db = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$res = $db->query('SELECT NOW()');
 //echo '<pre>';
-//print_r($db);
+//print_r($res);
 //echo '</pre>';
 ?>

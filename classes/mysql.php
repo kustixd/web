@@ -34,7 +34,7 @@ class mysql { // klassi algus
 
     //päringu testimine
     function query($sql){
-        $res = mysqli_connect($this->conn, $sql);
+        $res = mysqli_query($this->conn, $sql);
         if($res == false){
             echo 'Viga päringus!<br>';
             echo '<b>'.$sql.'</b><br>';
