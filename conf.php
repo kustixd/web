@@ -11,6 +11,8 @@ define('TMPL_DIR', 'tmpl/'); //tmpl kataloogi nime konstant
 define('LIB_DIR', 'lib/'); //lib kataloogi nime konstant
 define('ACTS_DIR', 'acts/'); //acts kataloogi nime konstant
 
+define('DEFAULT_ACT', 'default'); // vaikimisi tegevuse faili nime konstant
+
 // võtame kasutusele vajalikud abifailid
 require_once LIB_DIR.'utils.php';
 
