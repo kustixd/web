@@ -35,4 +35,16 @@ class http
         }
     }//initCont
 
+    // saame kätte veebis olevad andmed - nagu $_POST ja $_GET - emulatsioon
+    // tegelikult need andmed on kas lingi kaudu saadud
+    function get($name){
+        // kui vastava nimega element eksisteerib andmete massivis
+        if($this->vars[$name]){
+            // tagastame selle väärtuse
+            return->$this->vars[$name];
+        }
+        // muidu tagastame tühja väärtuse
+        return false;
+    }
+
 } // klassi lõpp
