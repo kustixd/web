@@ -41,7 +41,7 @@ class http
         // kui vastava nimega element eksisteerib andmete massivis
         if($this->vars[$name]){
             // tagastame selle väärtuse
-            return->$this->vars[$name];
+            return $this->vars[$name];
         }
         // muidu tagastame tühja väärtuse
         return false;
