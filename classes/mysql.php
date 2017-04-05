@@ -31,5 +31,17 @@ class mysql { // klassi algus
             exit;
         }
     }// connect
+
+    //päringu testimine
+    function query($sql){
+        $res = mysqli_connect($this->conn, $sql);
+        if($res == false){
+            echo 'Viga päringus!<br>';
+            echo '<b>'.$sql.'</b><br>';
+            echo mysqli_error($this->conn).'<br>';
+            exit;
+        }
+        return $res;
+    } // query
 } // klassi lõpp
 ?>
