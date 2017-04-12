@@ -9,6 +9,10 @@
 $menu = new template('menu.menu');
 $item = new template('menu.item');
 //lisame  sisu
+// menüü sql lause
+$sql = 'SELECT content_id, title FROM content WHERE .'parent_id=""'';
+
+
 //nimetame menüüs väljastatava elemendile lingi
 $item->set('name','esimene');
 // loome andtud menüü elemendile lingi
