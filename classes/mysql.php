@@ -43,5 +43,19 @@ class mysql { // klassi algus
         }
         return $res;
     } // query
+
+    // andmetega päring
+    function getArray($sql){
+        $res = $this->query($sql);
+        $data = array();
+        while($row = mysqli_fetch_assoc($res)){
+            $data[] = $row;
+        }
+        if(count($data) == 0){
+            return false;
+        }
+        return $data;
+    }// getArray
+
 } // klassi lõpp
 ?>
