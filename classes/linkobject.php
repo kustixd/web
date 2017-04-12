@@ -13,7 +13,7 @@ class linkobject extends http
     var $delim = '&amp;';
     var $eq = '=';
     var $protocol = 'http://';
-    var $aie = array('lang_id','sid'=>'sid');
+    var $aie = array('lang_id');
 
     // klassi meetotid
     // klassi konstruktor
@@ -50,12 +50,12 @@ class linkobject extends http
                 $this->addToLink($link, $name, $val);
             }
         }
-        // control, is link not empty - pairs is created
+
         if($link != ''){
-            $link = $this->baseUrl.'?'.$link; // http://IP/path_to_script.php?name=value
+            $link = $this->baseUrl.'?'.$link;
         } else {
             $link = $this->baseUrl;
         }
-        return $link; // return created link to base program
+        return $link;
     }// get link
 } //klassi lõpp

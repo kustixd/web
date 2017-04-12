@@ -31,16 +31,16 @@ $db = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 // keele tugi
 // lehe keeled
+// lehe id saamine url-ist
+$lang_id = $http->get('lang_id');
 $siteLangs = array(
     'et'=>'estonian',
     'en'=>'english',
     'ru'=>'russian'
 );
-// lehe id saamine url-ist
-$lang_id = $http->get('lang_id');
 if(!isset($siteLangs[$lang_id])) {
     //kui antud keelt ei toetata siis...
-    $lang_id = DEFAULT_LANG;
+    $lang_id = DEFAULT_LANG; // eesti
     $http->set('lang_id', $lang_id);
 }
 define('LANG_ID', $lang_id);
