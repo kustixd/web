@@ -13,6 +13,7 @@ class linkobject extends http
     var $delim = '&amp;';
     var $eq = '=';
     var $protocol = 'http://';
+    var $aie = array('lang_id','sid'=>'sid');
 
     // klassi meetotid
     // klassi konstruktor
@@ -32,16 +33,29 @@ class linkobject extends http
     }// addToLink
 
     // saame täislingi valmis
-    function getLink($add = array()){
+    function getLink($add = array(), $aie = array(), $not = array()){
         $link = '';
-        foreach ($add as $name=>$val) {
+        foreach ($add as $name => $val){
             $this->addToLink($link, $name, $val);
         }
-        if ($link != ''){
-            $link = $this->baseUrl.'?'.$link;
-        }else{
+        foreach ($aie as $name){
+            $val = $this->get($name);
+            if($val !== false){
+                $this->addToLink($link, $name, $val);
+            }
+        }
+        foreach ($this->aie as $name){
+            $val = $this->get($name);
+            if($val !== false and !in_array($name, $not)){
+                $this->addToLink($link, $name, $val);
+            }
+        }
+        // control, is link not empty - pairs is created
+        if($link != ''){
+            $link = $this->baseUrl.'?'.$link; // http://IP/path_to_script.php?name=value
+        } else {
             $link = $this->baseUrl;
         }
-        return $link;
+        return $link; // return created link to base program
     }// get link
 } //klassi lõpp
