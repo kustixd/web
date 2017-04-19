@@ -17,7 +17,7 @@ class session { //klassi algus
 
     // klassi meetodid
     // konstruktor
-    function __construct(){
+    function __construct(&$http, &$db){
         $this->http = &$http;
         $this->db = &$db;
         // võtame sessioni id andmed
