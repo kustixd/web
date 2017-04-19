@@ -25,6 +25,7 @@ require_once CLASSES_DIR.'template.php';
 require_once CLASSES_DIR.'http.php';
 require_once CLASSES_DIR.'linkobject.php';
 require_once CLASSES_DIR.'mysql.php';
+require_once CLASSES_DIR.'session.php';
 
 // loome vajalikud objektid projekti tööks
 $http = new linkobject();

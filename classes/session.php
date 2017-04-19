@@ -8,10 +8,17 @@
  */
 class session { //klassi algus
     // klassi muutujad
-    var $sid = false;
-    var $vars = array();
-    var $http = false;
-    var $db = false;
-    var $anonymous = true;
-    var $timeout = 1800;
+    var $sid = false; //sessioni id
+    var $vars = array(); // sessiooni ajal tekkivad andmed
+    var $http = false; // objekt veebiandmete kasutamiseks
+    var $db = false; // objekt andmebaasi kasutamiseks
+    // kui anonüümne sisselogimine pole lubatud siis $anyonymous = false;
+    var $anonymous = true; //
+
+    // klassi meetodid
+    // konstruktor
+    function __construct(){
+        $this->http = &$http;
+        $this->db = &$db;
+    }// konstruktori lõpp
 } // klassi lõpp
