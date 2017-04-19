@@ -10,6 +10,7 @@ define('CLASSES_DIR', 'classes/'); //classes kataloogi nime konstant
 define('TMPL_DIR', 'tmpl/'); //tmpl kataloogi nime konstant
 define('LIB_DIR', 'lib/'); //lib kataloogi nime konstant
 define('ACTS_DIR', 'acts/'); //acts kataloogi nime konstant
+define('LANG_DIR', 'lang/'); //lang kataloogi nime konstant
 
 define('DEFAULT_ACT', 'default'); // vaikimisi tegevuse faili nime konstant
 
