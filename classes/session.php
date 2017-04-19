@@ -21,8 +21,9 @@ class session { //klassi algus
         $this->http = &$http;
         $this->db = &$db;
         // võtame sessioni id andmed
-        $this->sid = $http->get('sid');
         $this->createSession();
+        $this->clearSession();
+        $this->sid = $http->get('sid');
     }// konstruktori lõpp
     function createSession($user = false){
         // kui kasutaja on anonüümne
@@ -50,4 +51,12 @@ class session { //klassi algus
         // paneme antud väärtuse ka veebi - lehtede vahel kasutamiseks
         $this->http->set('sid', $sid);
     }
+
+    // sessiooni tabeli puhastamine
+    function clearSessions(){
+        $sql = 'DELETE FROM session'.' WHERE '.
+            time().' - UNIX_TIMESTAMP(changed) > '.
+            $this->timeout;
+        $this->db->query($sql);
+    }// clearSessions
 } // klassi lõpp
