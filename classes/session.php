@@ -14,7 +14,7 @@ class session { //klassi algus
     var $db = false; // objekt andmebaasi kasutamiseks
     // kui anonüümne sisselogimine pole lubatud siis $anyonymous = false;
     var $anonymous = true; //
-
+    var $timeout = 1800; // 30 minutit
     // klassi meetodid
     // konstruktor
     function __construct(&$http, &$db){
