@@ -21,9 +21,10 @@ class session { //klassi algus
         $this->http = &$http;
         $this->db = &$db;
         // võtame sessioni id andmed
+        $this->clearSessions();
         $this->createSession();
-        $this->clearSession();
         $this->sid = $http->get('sid');
+        $this->checkSession();
     }// konstruktori lõpp
     function createSession($user = false){
         // kui kasutaja on anonüümne
@@ -59,4 +60,54 @@ class session { //klassi algus
             $this->timeout;
         $this->db->query($sql);
     }// clearSessions
-} // klassi lõpp
+
+    // sessiooni kontroll
+    function checkSession(){
+        $this->clearSessions();
+        // kui sid on puudu ja anonüümne on lubatud
+        // tekitame alustamiseks anonüümse sessioon
+        if($this->sid === false and $this->anonymous){
+            $this->createSession();
+        }
+        // kui aga sid on olemas
+        if($this->sid !== false){
+            // võtame andmed sessiooni tabelist, mis on
+            // antud id-ga seotud
+            $sql = 'SELECT * FROM session WHERE '.
+                'sid='.fixDb($this->sid);
+            // saadame päring andmebaasi ja võtame andmed
+            $res = $this->db->getArray($sql);
+            // kui andmebaasist andmed ei tule
+            if($res == false){
+                // kui anonüümne on lubatud
+                // siis loome uus sessioon
+                if($this->anonymous){
+                    $this->createSession();
+                } else {
+                    // kui anonüümne sessioon ei ole lubatud
+                    // tuleb maha kustutada kõik antud sessiooniga
+                    // olevad andmed veebist
+                    $this->sid = false;
+                    $this->http->del('sid');
+                }
+            } else{
+                // kui andmebaasist on võimalik sessiooni
+                // kohta andmed saada
+                // kõigepealt sessiooni andmed
+                $vars = unserialize($res[0]['svars']);
+                if(!is_array($vars)){
+                    $vars = array();
+                }
+                $this->vars = $vars;
+                // nüüd kasutaja andmed
+                $user_data = unserialize($res[0]['user_data']);
+                $this->user_data = $user_data;
+            }
+        } else {
+            // kui $this->sid === false
+            // hetkel sessiooni pole
+            echo 'Sessiooni hetkel pole<br />';
+        }
+    }// checkSession
+}// klassi lõpp
+?>
