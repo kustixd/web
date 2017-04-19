@@ -30,6 +30,7 @@ require_once CLASSES_DIR.'session.php';
 // loome vajalikud objektid projekti tööks
 $http = new linkobject();
 $db = new mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+$sess = new session($http, $db);
 
 // keele tugi
 // lehe keeled
