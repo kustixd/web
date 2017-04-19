@@ -22,7 +22,7 @@ class session { //klassi algus
         $this->db = &$db;
         // võtame sessioni id andmed
         $this->sid = $http->get('sid');
-        $this->checkSession();
+        $this->createSession();
     }// konstruktori lõpp
     function createSession($user = false){
         // kui kasutaja on anonüümne
