@@ -20,7 +20,9 @@ class session { //klassi algus
     function __construct(){
         $this->http = &$http;
         $this->db = &$db;
-
+        // võtame sessioni id andmed
+        $this->sid = $http->get('sid');
+        $this->checkSession();
     }// konstruktori lõpp
     function createSession($user = false){
         // kui kasutaja on anonüümne
