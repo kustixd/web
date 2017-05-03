@@ -58,4 +58,17 @@ class http
             unset($this->vars[$name]);
         }
     }// del
+
+    // suunamine
+    function redirect($url = false){
+        global $sess;
+        $sess->flush();
+        // kui $url on false - pealehele
+        if($url == false){
+            $url = $this->getLink();
+        }
+        $url = str_replace('&amp;', '&', $url);
+        header('Location: '.$url);
+        exit;
+    }// redirect
 } // klassi lõpp
