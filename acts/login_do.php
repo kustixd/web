@@ -11,8 +11,8 @@ $passwd = $http->get('parool');
 
 //koostame päringu kasutaja kontrollimiseks andmebaasis
 $sql = 'SELECT * from user'.
-    'where username='.fixDb($username).
-    'AND password='.fixDb(md5($passwd));
+    ' where username='.fixDb($username).
+    ' AND password='.fixDb(md5($passwd));
 $res = $db->getArray($sql);
 
 // Teeme päringu tulemuse kontrolli
