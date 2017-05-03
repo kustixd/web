@@ -131,7 +131,18 @@ class session { //klassi algus
     function set($name, $val){
         $this->vars[$name]=$val;
     } //set
+
     // sessiooni andmete võtmine
-    function get
+    function get($name){
+        if(isset($this->vars[$name])){
+            return $this->vars[$name];
+        }
+        return false;
+    }// get
+    function del($name){
+        if(isset($this->vars[$name])){
+            unset($this->vars[$name]);
+        }
+    }// del
 }// klassi lõpp
 ?>
