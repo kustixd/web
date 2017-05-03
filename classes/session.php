@@ -116,5 +116,22 @@ class session { //klassi algus
             define('USER_ID', 0);
         }
     }// checkSession
+
+    // sessiooni uuendamine
+    function flush()
+    {
+        if ($this->sid !== false) {
+            $sql = 'UPDATE session SET changed=NOW(), ' .
+                'svars=' . fixDb(serialize($this->vars)) .
+                ' WHERE sid=' . fixDb($this->sid);
+            $this->db->query($sql);
+        }
+    }
+    // sessiooni andmete lisamine
+    function set($name, $val){
+        $this->vars[$name]=$val;
+    } //set
+    // sessiooni andmete võtmine
+    function get
 }// klassi lõpp
 ?>
