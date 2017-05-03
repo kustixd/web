@@ -104,8 +104,8 @@ class session { //klassi algus
                 $this->vars = $vars;
                 // nüüd kasutaja andmed
                 $user_data = unserialize($res[0]['user_data']);
-                define('ROLE_ID', $user_data[role_id]);
-                define('USER_ID', $user_data[role_id]);
+                define('ROLE_ID', $user_data['role_id']);
+                define('USER_ID', $user_data['user_id']);
                 $this->user_data = $user_data;
             }
         } else {
