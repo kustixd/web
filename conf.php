@@ -20,6 +20,11 @@ require_once 'db_conf.php'; // loome andmebaasi konfi sisse
 
 define('DEFAULT_LANG', 'et'); // default keel
 
+// kasutajate rollid
+define('ROLE_NONE', 0);
+define('ROLE_ADMIN', 1);
+define('ROLE_USER', 2);
+
 //võtame kasutusele vajalikud failid
 require_once CLASSES_DIR.'template.php';
 require_once CLASSES_DIR.'http.php';
